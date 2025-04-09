@@ -44,13 +44,7 @@ For example, if you made three minor edits to a tutorial in separate commits, yo
 
 When you rebase your branch before integrating it into the main documentation, you’re updating your branch with the latest changes before finalizing your work. This means you have handled any conflicts proactively on your branch, rather than dealing with them during a merge. This helps reduce the chance of introducing new conflicts into the main branch.
 
-### Professional and Polished Commits
-
-Using interactive rebase allows you to curate your commit history before merging. You can edit commit messages to make them more descriptive, rearrange commits to present changes logically, and squash related commits to reduce clutter.
-
-This practice reflects well on documentation quality, as it shows attention to detail and professionalism in version control.
-
-## Regular rebase
+## How to Rebase
 
 Regular rebasing is useful when you just want to integrate the latest changes from the main branch into your working branch. This essentially applies commits on the tip of the base branch.
 
@@ -78,57 +72,6 @@ git rebase --continue
 ```text
 git push --force
 ```
-
-## Interactive Rebase
-
-Interactive rebase is useful when you want to clean up your commit history before merging. You can squash, reorder, or edit commits to make the final history more professional and concise.
-
-1. Start an interactive rebase:
-
-    ```text
-    git rebase -i HEAD~3
-    ```
-
-    This command initiates a rebase for the last three commits. You can change the number to include more commits.
-
-2. Edit the commit list:
-
-   A text editor will open, showing a list of recent commits:
-
-   ```text
-   pick a1b2c3d Fix typo in introduction  
-   pick e4f5g6h Update figure caption  
-   pick i7j8k9l Minor formatting adjustment  
-   ```
-
-   You can change pick to:
-
-   * edit to modify the commit message
-
-   * squash to combine the commit with the previous one
-
-   * reword to change the commit message without altering the content
-
-3. Save and close the editor.
-4. Follow the prompts:
-
-   If you chose to edit or squash, Git will prompt you to update commit messages or resolve conflicts as needed.
-
-5. Finalize the rebase:
-
-   Once done, continue rebasing:
-
-   ```text
-   git rebase --continue
-   ```
-
-6. Push your changes:
-
-   Since the history was altered, force-push the branch:
-
-   ```text
-   git push --force
-   ```
 
 ### When to Avoid Rebase
 
